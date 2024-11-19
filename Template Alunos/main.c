@@ -10,7 +10,7 @@
 
 /*======================================================== FUNÇÕES GERAIS ========================================================*/
 
-void completaVetor(int *vetor, ssize_t tamVetor)
+void completaVetor(int *vetor, size_t tamVetor)
 {
     int i;
 
@@ -20,7 +20,7 @@ void completaVetor(int *vetor, ssize_t tamVetor)
     }
 }
 
-void imprimeVetor(int *vetor, ssize_t tamVetor)
+void imprimeVetor(int *vetor, size_t tamVetor)
 {
     int i;
 
@@ -138,6 +138,23 @@ void heapSortIte(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t start
     //imprimeVetor(vetor, tam);
 }
 
+void introSortRec(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t start, clock_t end)
+{
+    double total;
+
+    completaVetor(vetor, tam); // preenche o vetor
+    start = clock();           // inicia o temporizador
+    *numComparacoes = 0;
+    *numComparacoes = algoritmoExtra(vetor, tam); // recebe o total de comparacoes do algoritimo
+    end = clock();                            // termina o temporizador
+
+    total = ((double)end - start) / CLOCKS_PER_SEC; // calcula os segundos
+
+    printf("\nINTRO SORT RECURSIVO:\n%f (tempo de execução em segundos)\nComparacoes: %lu\n", total, *numComparacoes);
+
+    //imprimeVetor(vetor, tam);
+}
+
 int main()
 {
     char nome[MAX_CHAR];
@@ -151,7 +168,7 @@ int main()
 
     printf("\n");
 
-    tamVetor = 100000000; // tamanho do vetor, e os elementos que irão estar presente dentro do vetor, que vai de 0 até tamVetor -1
+    tamVetor = 1000000000; // tamanho do vetor, e os elementos que irão estar presente dentro do vetor, que vai de 0 até tamVetor -1
 
     printf("Trabalhando com um vetor de tamanho: %zd \nE com números de 0 até %zd \n", tamVetor, tamVetor);
 
@@ -178,6 +195,8 @@ int main()
     quickSortIte(vetor, tamVetor, &numComp, start, end);
 
     heapSortIte(vetor, tamVetor, &numComp, start, end);
+    
+    introSortRec(vetor, tamVetor, &numComp, start, end);
 
     free(vetor);
 
