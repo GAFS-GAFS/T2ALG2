@@ -168,7 +168,7 @@ int main()
 
     printf("\n");
 
-    tamVetor = 1000000000; // tamanho do vetor, e os elementos que irão estar presente dentro do vetor, que vai de 0 até tamVetor -1
+    tamVetor = 1000000; // tamanho do vetor, e os elementos que irão estar presente dentro do vetor, que vai de 0 até tamVetor -1
 
     printf("Trabalhando com um vetor de tamanho: %zd \nE com números de 0 até %zd \n", tamVetor, tamVetor);
 

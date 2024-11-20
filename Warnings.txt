@@ -1,0 +1,113 @@
+gcc -c main.c -Wall -Wshadow -Wconversion -fpermissive
+cc1: warning: command-line option ‘-fpermissive’ is valid for C++/ObjC++ but not for C
+main.c: In function ‘completaVetor’:
+main.c:19:27: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+   19 |         vetor[i] = rand() % tamVetor + 1;
+      |                           ^
+main.c:19:20: warning: conversion from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ may change value [-Wconversion]
+   19 |         vetor[i] = rand() % tamVetor + 1;
+      |                    ^~~~
+main.c: In function ‘mergeSortRec’:
+main.c:49:26: warning: conversion from ‘clock_t’ {aka ‘long int’} to ‘double’ may change value [-Wconversion]
+   49 |     total = ((double)end - start) / CLOCKS_PER_SEC; // calcula os segundos
+      |                          ^
+main.c: In function ‘quickSortRec’:
+main.c:66:26: warning: conversion from ‘clock_t’ {aka ‘long int’} to ‘double’ may change value [-Wconversion]
+   66 |     total = ((double)end - start) / CLOCKS_PER_SEC; // calcula os segundos
+      |                          ^
+main.c: In function ‘heapSortRec’:
+main.c:83:26: warning: conversion from ‘clock_t’ {aka ‘long int’} to ‘double’ may change value [-Wconversion]
+   83 |     total = ((double)end - start) / CLOCKS_PER_SEC; // calcula os segundos
+      |                          ^
+main.c: In function ‘mergeSortIte’:
+main.c:100:26: warning: conversion from ‘clock_t’ {aka ‘long int’} to ‘double’ may change value [-Wconversion]
+  100 |     total = ((double)end - start) / CLOCKS_PER_SEC; // calcula os segundos
+      |                          ^
+main.c: In function ‘quickSortIte’:
+main.c:117:26: warning: conversion from ‘clock_t’ {aka ‘long int’} to ‘double’ may change value [-Wconversion]
+  117 |     total = ((double)end - start) / CLOCKS_PER_SEC; // calcula os segundos
+      |                          ^
+main.c: In function ‘heapSortIte’:
+main.c:134:26: warning: conversion from ‘clock_t’ {aka ‘long int’} to ‘double’ may change value [-Wconversion]
+  134 |     total = ((double)end - start) / CLOCKS_PER_SEC; // calcula os segundos
+      |                          ^
+main.c: In function ‘introSortRec’:
+main.c:151:26: warning: conversion from ‘clock_t’ {aka ‘long int’} to ‘double’ may change value [-Wconversion]
+  151 |     total = ((double)end - start) / CLOCKS_PER_SEC; // calcula os segundos
+      |                          ^
+main.c: In function ‘main’:
+main.c:177:41: warning: conversion to ‘long unsigned int’ from ‘ssize_t’ {aka ‘long int’} may change the sign of the result [-Wsign-conversion]
+  177 |     int *vetor = (int *)malloc(tamVetor * sizeof(int));
+      |                                         ^
+main.c:187:25: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘ssize_t’ {aka ‘long int’} may change the sign of the result [-Wsign-conversion]
+  187 |     mergeSortRec(vetor, tamVetor, &numComp, start, end);
+      |                         ^~~~~~~~
+main.c:189:25: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘ssize_t’ {aka ‘long int’} may change the sign of the result [-Wsign-conversion]
+  189 |     quickSortRec(vetor, tamVetor, &numComp, start, end);
+      |                         ^~~~~~~~
+main.c:191:24: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘ssize_t’ {aka ‘long int’} may change the sign of the result [-Wsign-conversion]
+  191 |     heapSortRec(vetor, tamVetor, &numComp, start, end);
+      |                        ^~~~~~~~
+main.c:193:25: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘ssize_t’ {aka ‘long int’} may change the sign of the result [-Wsign-conversion]
+  193 |     mergeSortIte(vetor, tamVetor, &numComp, start, end);
+      |                         ^~~~~~~~
+main.c:195:25: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘ssize_t’ {aka ‘long int’} may change the sign of the result [-Wsign-conversion]
+  195 |     quickSortIte(vetor, tamVetor, &numComp, start, end);
+      |                         ^~~~~~~~
+main.c:197:24: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘ssize_t’ {aka ‘long int’} may change the sign of the result [-Wsign-conversion]
+  197 |     heapSortIte(vetor, tamVetor, &numComp, start, end);
+      |                        ^~~~~~~~
+main.c:199:25: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘ssize_t’ {aka ‘long int’} may change the sign of the result [-Wsign-conversion]
+  199 |     introSortRec(vetor, tamVetor, &numComp, start, end);
+      |                         ^~~~~~~~
+gcc -c ordenacao.c -Wall -Wshadow -Wconversion -fpermissive
+cc1: warning: command-line option ‘-fpermissive’ is valid for C++/ObjC++ but not for C
+ordenacao.c: In function ‘mergeSort’:
+ordenacao.c:113:41: warning: conversion from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ may change value [-Wconversion]
+  113 |     aux_mergeRec(vetor, vet_aux, a, tam - 1, &mergeCompRec);
+      |                                     ~~~~^~~
+ordenacao.c: In function ‘quickSort’:
+ordenacao.c:167:13: warning: conversion from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ may change value [-Wconversion]
+  167 |     int b = tam - 1;
+      |             ^~~
+ordenacao.c: In function ‘heapSort’:
+ordenacao.c:227:32: warning: conversion from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ may change value [-Wconversion]
+  227 |     construirMaxHeapRec(vetor, tam, &heapCompRec);
+      |                                ^~~
+ordenacao.c:230:18: warning: conversion from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ may change value [-Wconversion]
+  230 |     for (int i = tam - 1; i > 0; i--)
+      |                  ^~~
+ordenacao.c: In function ‘merge’:
+ordenacao.c:246:36: warning: conversion to ‘long unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+  246 |     int *vetEsq = (int *)malloc(n1 * sizeof(int)); // Aloca memória para o subvetor esquerdo
+      |                                    ^
+ordenacao.c:247:36: warning: conversion to ‘long unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+  247 |     int *vetDir = (int *)malloc(n2 * sizeof(int)); // Aloca memória para o subvetor direito
+      |                                    ^
+ordenacao.c:295:12: warning: conversion from ‘uint64_t’ {aka ‘long unsigned int’} to ‘int’ may change value [-Wconversion]
+  295 |     return (compMergeSR);
+      |            ^
+ordenacao.c: In function ‘mergeSortSR’:
+ordenacao.c:316:22: warning: conversion from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ may change value [-Wconversion]
+  316 |     pilhaDir[topo] = tam - 1;
+      |                      ^~~
+ordenacao.c:351:25: warning: conversion to ‘uint64_t’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+  351 |             compMergeSR += merge(vetor, esq, meio, dir);
+      |                         ^~
+ordenacao.c: In function ‘heapSortSR’:
+ordenacao.c:488:29: warning: conversion from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ may change value [-Wconversion]
+  488 |     construirMaxHeap(vetor, tam, &compHeapSR);
+      |                             ^~~
+ordenacao.c:490:18: warning: conversion from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ may change value [-Wconversion]
+  490 |     for (int i = tam - 1; i > 0; i--)
+      |                  ^~~
+ordenacao.c: In function ‘introsortRec’:
+ordenacao.c:537:50: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+  537 |     *comparacoes += heapSort(&vetor[inicio], tamanho);
+      |                                              ^~~~~~~
+
+ordenacao.c: In function ‘algoritmoExtra’:
+ordenacao.c:566:32: warning: conversion from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ may change value [-Wconversion]
+  566 |     introsortRec(vetor, 0, tam - 1, maxDepth, &comparacoes);
+      |                            ~~~~^~~
+gcc -o trab main.o ordenacao.o -Wall -Wshadow -Wconversion -fpermissive

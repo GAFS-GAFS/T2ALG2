@@ -171,7 +171,7 @@ uint64_t quickSort(int vetor[], size_t tam)
     auxQuick(vetor, a, b, &quickComp);
 
     // Retorna o número de comparações feitas
-    return quickComp;
+    return (quickComp);
 }
 
 /*=========================================================== HEAP SORT RECURSIVO ===========================================================*/
@@ -498,103 +498,64 @@ uint64_t heapSortSR(int vetor[], size_t tam)
 
 /*=========================================================== INTRO SORT RECURSIVO ===========================================================*/
 
-uint64_t insertionSort(int vetor[], int inicio, int fim, uint64_t *comparacoes) {
-
-
-    for (int i = inicio + 1; i <= fim; i++) {
-        int chave = vetor[i];
+void insertionSort(int vetor[], int inicio, int fim, uint64_t *comparacoes) 
+{
+    for (int i = inicio + 1; i <= fim; i++) 
+    {
         int j = i - 1;
+        int chave = vetor[i];
 
         // Move os elementos maiores que a chave para a frente
-        while (j >= inicio && vetor[j] > chave) {
+        while (j >= inicio && vetor[j] > chave) 
+        {
             vetor[j + 1] = vetor[j];
             j--;
-            comparacoes++;
+            (*comparacoes)++;
         }
         vetor[j + 1] = chave;
-        comparacoes++;
+        (*comparacoes)++;
     }
-
-    return comparacoes;
 }
 
-
-void introsortRec(int vetor[], int inicio, int fim, int maxDepth, uint64_t *comparacoes) {
-    int tamanho = fim - inicio + 1;
-
-    // Usa InsertionSort para subarrays pequenos
-    if (tamanho < 16) {
-        *comparacoes += insertionSort(vetor, inicio, fim, comparacoes);
-        return;
-    }
-
-    // Muda para HeapSort se a profundidade máxima for atingida
-    if (maxDepth == 0) {
-        *comparacoes += heapSort(&vetor[inicio], tamanho);
-        return;
-    }
-
-    // Usa QuickSort como padrão
-    int pivo = particionaRec(vetor, inicio, fim, comparacoes);
-    introsortRec(vetor, inicio, pivo - 1, maxDepth - 1, comparacoes);
-    introsortRec(vetor, pivo + 1, fim, maxDepth - 1, comparacoes);
-}
-
-uint64_t algoritmoExtra(int vetor[], size_t tam) {
-    uint64_t comparacoes = 0;
-
-    // Calcula log2(tam) manualmente
-    int maxDepth = 0;
-    size_t tempTam = tam;
-
-
-    while (tempTam > 1) {
-        tempTam >>= 1; // Desloca os bits para a direita (divisão por 2)
-        maxDepth++;
-    }
-
-    // Define a profundidade máxima como 2 * log2(tamanho)
-    maxDepth *= 2;
-
-    // Chama a função recursiva do Introsort
-    introsortRec(vetor, 0, tam - 1, maxDepth, &comparacoes);
-
-    return comparacoes;
-}
-
-/*
-void introsortRec(int vetor[], int inicio, int fim, int maxDepth, uint64_t *comparacoes) {
+void introsortRec(int vetor[], int inicio, int fim, int maxDepth, uint64_t *comparacoes) 
+{
     int tamanho = fim - inicio + 1;
 
     // Limite para o uso de InsertionSort (10% do tamanho do vetor)
-    int InsertionSortLimit = tamanho / 10;  // 10% do tamanho do vetor
+    int InsertionSortLimit = tamanho / 10; 
 
     // Usa InsertionSort para subarrays pequenos
-    if (tamanho <= InsertionSortLimit) {
-        *comparacoes += insertionSort(vetor, inicio, fim, comparacoes);
+    if (tamanho <= InsertionSortLimit) 
+    {
+        insertionSort(vetor, inicio, fim, comparacoes);
         return;
     }
 
     // Muda para HeapSort se a profundidade máxima for atingida
-    if (maxDepth == 0) {
+    if (maxDepth == 0)
+    {
         *comparacoes += heapSort(&vetor[inicio], tamanho);
         return;
     }
 
     // Usa QuickSort como padrão
     int pivo = particionaRec(vetor, inicio, fim, comparacoes);
+
     introsortRec(vetor, inicio, pivo - 1, maxDepth - 1, comparacoes);
     introsortRec(vetor, pivo + 1, fim, maxDepth - 1, comparacoes);
 }
 
-uint64_t algoritmoExtra(int vetor[], size_t tam) {
+uint64_t algoritmoExtra(int vetor[], size_t tam) 
+{
     uint64_t comparacoes = 0;
 
     // Calcula log2(tam) manualmente
     int maxDepth = 0;
+
     size_t tempTam = tam;
 
-    while (tempTam > 1) {
+    while (tempTam > 1) 
+    {
         tempTam >>= 1; // Desloca os bits para a direita (divisão por 2)
         maxDepth++;
     }
@@ -602,9 +563,7 @@ uint64_t algoritmoExtra(int vetor[], size_t tam) {
     // Define a profundidade máxima como 2 * log2(tamanho)
     maxDepth *= 2;
 
-    // Chama a função recursiva do Introsort
     introsortRec(vetor, 0, tam - 1, maxDepth, &comparacoes);
 
-    return comparacoes;
+    return (comparacoes);
 }
-*/
