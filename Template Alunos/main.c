@@ -50,7 +50,7 @@ void mergeSortRec(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t star
 
     printf("\nMERGE SORT RECURSIVO:\n%f (tempo de execução em segundos)\nComparacoes: %lu\n", total, *numComparacoes);
 
-    //imprimeVetor(vetor, tam);
+    imprimeVetor(vetor, tam);
 }
 
 void quickSortRec(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t start, clock_t end)
@@ -67,7 +67,7 @@ void quickSortRec(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t star
 
     printf("\nQUICK SORT RECURSIVO:\n%f (tempo de execução em segundos)\nComparacoes: %lu\n", total, *numComparacoes);
 
-    //imprimeVetor(vetor, tam);
+    imprimeVetor(vetor, tam);
 }
 
 void heapSortRec(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t start, clock_t end)
@@ -84,7 +84,7 @@ void heapSortRec(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t start
 
     printf("\nHEAP SORT RECURSIVO:\n%f (tempo de execução em segundos)\nComparacoes: %lu\n", total, *numComparacoes);
 
-    //imprimeVetor(vetor, tam);
+    imprimeVetor(vetor, tam);
 }
 
 void mergeSortIte(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t start, clock_t end)
@@ -101,7 +101,7 @@ void mergeSortIte(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t star
 
     printf("\nMERGE SORT ITERATIVO:\n%f (tempo de execução em segundos)\nComparacoes: %lu\n", total, *numComparacoes);
 
-    //imprimeVetor(vetor, tam);
+    imprimeVetor(vetor, tam);
 }
 
 void quickSortIte(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t start, clock_t end)
@@ -118,7 +118,7 @@ void quickSortIte(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t star
 
     printf("\nQUICK SORT ITERATIVO:\n%f (tempo de execução em segundos)\nComparacoes: %lu\n", total, *numComparacoes);
 
-    //imprimeVetor(vetor, tam);
+    imprimeVetor(vetor, tam);
 }
 
 void heapSortIte(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t start, clock_t end)
@@ -135,7 +135,7 @@ void heapSortIte(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t start
 
     printf("\nHEAP SORT ITERATIVO:\n%f (tempo de execução em segundos)\nComparacoes: %lu\n", total, *numComparacoes);
 
-    //imprimeVetor(vetor, tam);
+    imprimeVetor(vetor, tam);
 }
 
 void introSortRec(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t start, clock_t end)
@@ -152,7 +152,7 @@ void introSortRec(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t star
 
     printf("\nINTRO SORT RECURSIVO:\n%f (tempo de execução em segundos)\nComparacoes: %lu\n", total, *numComparacoes);
 
-    //imprimeVetor(vetor, tam);
+    imprimeVetor(vetor, tam);
 }
 
 int main()
@@ -168,7 +168,7 @@ int main()
 
     printf("\n");
 
-    tamVetor = 1000000; // tamanho do vetor, e os elementos que irão estar presente dentro do vetor, que vai de 0 até tamVetor -1
+    tamVetor = 100000; // tamanho do vetor, e os elementos que irão estar presente dentro do vetor, que vai de 0 até tamVetor -1
 
     printf("Trabalhando com um vetor de tamanho: %zd \nE com números de 0 até %zd \n", tamVetor, tamVetor);
 

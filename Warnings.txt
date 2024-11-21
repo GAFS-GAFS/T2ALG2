@@ -1,5 +1,4 @@
-gcc -c main.c -Wall -Wshadow -Wconversion -fpermissive
-cc1: warning: command-line option ‘-fpermissive’ is valid for C++/ObjC++ but not for C
+gcc -c main.c -Wall -Wshadow -Wconversion
 main.c: In function ‘completaVetor’:
 main.c:19:27: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
    19 |         vetor[i] = rand() % tamVetor + 1;
@@ -37,8 +36,9 @@ main.c:151:26: warning: conversion from ‘clock_t’ {aka ‘long int’} to �
       |                          ^
 main.c: In function ‘main’:
 main.c:177:41: warning: conversion to ‘long unsigned int’ from ‘ssize_t’ {aka ‘long int’} may change the sign of the result [-Wsign-conversion]
-  177 |     int *vetor = (int *)malloc(tamVetor * sizeof(int));
-      |                                         ^
+  177 | t *vetor = (int *)malloc(tamVetor * sizeof(int));
+      |                                   ^
+
 main.c:187:25: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘ssize_t’ {aka ‘long int’} may change the sign of the result [-Wsign-conversion]
   187 |     mergeSortRec(vetor, tamVetor, &numComp, start, end);
       |                         ^~~~~~~~
@@ -60,12 +60,12 @@ main.c:197:24: warning: conversion to ‘size_t’ {aka ‘long unsigned int’}
 main.c:199:25: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘ssize_t’ {aka ‘long int’} may change the sign of the result [-Wsign-conversion]
   199 |     introSortRec(vetor, tamVetor, &numComp, start, end);
       |                         ^~~~~~~~
-gcc -c ordenacao.c -Wall -Wshadow -Wconversion -fpermissive
-cc1: warning: command-line option ‘-fpermissive’ is valid for C++/ObjC++ but not for C
+gcc -c ordenacao.c -Wall -Wshadow -Wconversion
 ordenacao.c: In function ‘mergeSort’:
 ordenacao.c:113:41: warning: conversion from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ may change value [-Wconversion]
-  113 |     aux_mergeRec(vetor, vet_aux, a, tam - 1, &mergeCompRec);
-      |                                     ~~~~^~~
+  113 | x_mergeRec(vetor, vet_aux, a, tam - 1, &mergeCompRec);
+      |                               ~~~~^~~
+
 ordenacao.c: In function ‘quickSort’:
 ordenacao.c:167:13: warning: conversion from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ may change value [-Wconversion]
   167 |     int b = tam - 1;
@@ -79,21 +79,17 @@ ordenacao.c:230:18: warning: conversion from ‘size_t’ {aka ‘long unsigned 
       |                  ^~~
 ordenacao.c: In function ‘merge’:
 ordenacao.c:246:36: warning: conversion to ‘long unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
-  246 |     int *vetEsq = (int *)malloc(n1 * sizeof(int)); // Aloca memória para o subvetor esquerdo
-      |                                    ^
+  246 |    int *vetEsq = (int *)malloc(n1 * sizeof(int)); // Aloca memória para o subvetor esquerdo
+      |                                   ^
+
 ordenacao.c:247:36: warning: conversion to ‘long unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
-  247 |     int *vetDir = (int *)malloc(n2 * sizeof(int)); // Aloca memória para o subvetor direito
-      |                                    ^
-ordenacao.c:295:12: warning: conversion from ‘uint64_t’ {aka ‘long unsigned int’} to ‘int’ may change value [-Wconversion]
-  295 |     return (compMergeSR);
-      |            ^
+  247 |    int *vetDir = (int *)malloc(n2 * sizeof(int)); // Aloca memória para o subvetor direito
+      |                                   ^
+
 ordenacao.c: In function ‘mergeSortSR’:
 ordenacao.c:316:22: warning: conversion from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ may change value [-Wconversion]
   316 |     pilhaDir[topo] = tam - 1;
       |                      ^~~
-ordenacao.c:351:25: warning: conversion to ‘uint64_t’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
-  351 |             compMergeSR += merge(vetor, esq, meio, dir);
-      |                         ^~
 ordenacao.c: In function ‘heapSortSR’:
 ordenacao.c:488:29: warning: conversion from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ may change value [-Wconversion]
   488 |     construirMaxHeap(vetor, tam, &compHeapSR);
@@ -103,11 +99,11 @@ ordenacao.c:490:18: warning: conversion from ‘size_t’ {aka ‘long unsigned 
       |                  ^~~
 ordenacao.c: In function ‘introsortRec’:
 ordenacao.c:537:50: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
-  537 |     *comparacoes += heapSort(&vetor[inicio], tamanho);
-      |                                              ^~~~~~~
+  537 | aracoes += heapSort(&vetor[inicio], tamanho);
+      |                                     ^~~~~~~
 
 ordenacao.c: In function ‘algoritmoExtra’:
 ordenacao.c:566:32: warning: conversion from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ may change value [-Wconversion]
   566 |     introsortRec(vetor, 0, tam - 1, maxDepth, &comparacoes);
       |                            ~~~~^~~
-gcc -o trab main.o ordenacao.o -Wall -Wshadow -Wconversion -fpermissive
+gcc -o trab main.o ordenacao.o -Wall -Wshadow -Wconversion

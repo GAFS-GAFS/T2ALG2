@@ -237,7 +237,7 @@ uint64_t heapSort(int vetor[], size_t tam)
 }
 
 /*========================================================== MERGE SORT ITERATIVO ===========================================================*/
-int merge(int vetor[], int esq, int meio, int dir)
+uint64_t merge(int vetor[], int esq, int meio, int dir)
 {
     int i = 0, j = 0, k = esq;
     uint64_t compMergeSR = 0; 
