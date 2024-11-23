@@ -14,9 +14,9 @@ void completaVetor(int *vetor, size_t tamVetor)
 {
     int i;
 
-    for (i = 0; i < tamVetor; i++) // preenche o vetor com valores aleatórios
+    for (i = 0; i < (int)tamVetor; i++) // preenche o vetor com valores aleatórios
     {
-        vetor[i] = rand() % tamVetor + 1;
+        vetor[i] = rand() % (int)tamVetor + 1;
     }
 }
 
@@ -26,7 +26,7 @@ void imprimeVetor(int *vetor, size_t tamVetor)
 
     printf("Vetor = [");
 
-    for (i = 0; i < tamVetor; i++) // percorre o vetor imprimindo seus valores
+    for (i = 0; i < (int)tamVetor; i++) // percorre o vetor imprimindo seus valores
     {
         printf(" %d", vetor[i]);
     }
@@ -46,7 +46,7 @@ void mergeSortRec(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t star
     *numComparacoes = mergeSort(vetor, tam); // recebe o total de comparacoes do algoritimo
     end = clock();                           // termina o temporizador
 
-    total = ((double)end - start) / CLOCKS_PER_SEC; // calcula os segundos
+    total = (double)(end - start) / CLOCKS_PER_SEC; // calcula os segundos
 
     printf("\nMERGE SORT RECURSIVO:\n%f (tempo de execução em segundos)\nComparacoes: %lu\n", total, *numComparacoes);
 
@@ -63,7 +63,7 @@ void quickSortRec(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t star
     *numComparacoes = quickSort(vetor, tam); // recebe o total de comparacoes do algoritimo
     end = clock();                           // termina o temporizador
 
-    total = ((double)end - start) / CLOCKS_PER_SEC; // calcula os segundos
+    total = (double)(end - start) / CLOCKS_PER_SEC; // calcula os segundos
 
     printf("\nQUICK SORT RECURSIVO:\n%f (tempo de execução em segundos)\nComparacoes: %lu\n", total, *numComparacoes);
 
@@ -80,7 +80,7 @@ void heapSortRec(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t start
     *numComparacoes = heapSort(vetor, tam); // recebe o total de comparacoes do algoritimo
     end = clock();                          // termina o temporizador
 
-    total = ((double)end - start) / CLOCKS_PER_SEC; // calcula os segundos
+    total = (double)(end - start) / CLOCKS_PER_SEC; // calcula os segundos
 
     printf("\nHEAP SORT RECURSIVO:\n%f (tempo de execução em segundos)\nComparacoes: %lu\n", total, *numComparacoes);
 
@@ -97,7 +97,7 @@ void mergeSortIte(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t star
     *numComparacoes = mergeSortSR(vetor, tam); // recebe o total de comparacoes do algoritimo
     end = clock();                             // termina o temporizador
 
-    total = ((double)end - start) / CLOCKS_PER_SEC; // calcula os segundos
+    total = (double)(end - start) / CLOCKS_PER_SEC; // calcula os segundos
 
     printf("\nMERGE SORT ITERATIVO:\n%f (tempo de execução em segundos)\nComparacoes: %lu\n", total, *numComparacoes);
 
@@ -114,7 +114,7 @@ void quickSortIte(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t star
     *numComparacoes = quickSortSR(vetor, tam); // recebe o total de comparacoes do algoritimo
     end = clock();                             // termina o temporizador
 
-    total = ((double)end - start) / CLOCKS_PER_SEC; // calcula os segundos
+    total = (double)(end - start) / CLOCKS_PER_SEC; // calcula os segundos
 
     printf("\nQUICK SORT ITERATIVO:\n%f (tempo de execução em segundos)\nComparacoes: %lu\n", total, *numComparacoes);
 
@@ -131,7 +131,7 @@ void heapSortIte(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t start
     *numComparacoes = heapSortSR(vetor, tam); // recebe o total de comparacoes do algoritimo
     end = clock();                            // termina o temporizador
 
-    total = ((double)end - start) / CLOCKS_PER_SEC; // calcula os segundos
+    total = (double)(end - start) / CLOCKS_PER_SEC; // calcula os segundos
 
     printf("\nHEAP SORT ITERATIVO:\n%f (tempo de execução em segundos)\nComparacoes: %lu\n", total, *numComparacoes);
 
@@ -148,7 +148,7 @@ void introSortRec(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t star
     *numComparacoes = algoritmoExtra(vetor, tam); // recebe o total de comparacoes do algoritimo
     end = clock();                            // termina o temporizador
 
-    total = ((double)end - start) / CLOCKS_PER_SEC; // calcula os segundos
+    total = (double)(end - start) / CLOCKS_PER_SEC; // calcula os segundos
 
     printf("\nINTRO SORT RECURSIVO:\n%f (tempo de execução em segundos)\nComparacoes: %lu\n", total, *numComparacoes);
 
@@ -168,8 +168,14 @@ int main()
 
     printf("\n");
 
-    tamVetor = 100000; // tamanho do vetor, e os elementos que irão estar presente dentro do vetor, que vai de 0 até tamVetor -1
+    tamVetor = 100; // tamanho do vetor, e os elementos que irão estar presente dentro do vetor, que vai de 0 até tamVetor -1
 
+    if ( tamVetor < 0)
+    {
+        printf("Falha Fatal. Impossivel trabalhar com vetores de tamanha negativo.\n");
+        return(1);
+    }
+    
     printf("Trabalhando com um vetor de tamanho: %zd \nE com números de 0 até %zd \n", tamVetor, tamVetor);
 
     printf("\n");
@@ -184,19 +190,19 @@ int main()
 
     /*==================================== FUNÇÕES INICIAIS PARA DAR INICIO NOS ALGORITIMOS ====================================*/
 
-    mergeSortRec(vetor, tamVetor, &numComp, start, end);
+    mergeSortRec(vetor, (size_t)tamVetor, &numComp, start, end);
 
-    quickSortRec(vetor, tamVetor, &numComp, start, end);
+    quickSortRec(vetor, (size_t)tamVetor, &numComp, start, end);
 
-    heapSortRec(vetor, tamVetor, &numComp, start, end);
+    heapSortRec(vetor, (size_t)tamVetor, &numComp, start, end);
 
-    mergeSortIte(vetor, tamVetor, &numComp, start, end);
+    mergeSortIte(vetor, (size_t)tamVetor, &numComp, start, end);
 
-    quickSortIte(vetor, tamVetor, &numComp, start, end);
+    quickSortIte(vetor, (size_t)tamVetor, &numComp, start, end);
 
-    heapSortIte(vetor, tamVetor, &numComp, start, end);
+    heapSortIte(vetor, (size_t)tamVetor, &numComp, start, end);
     
-    introSortRec(vetor, tamVetor, &numComp, start, end);
+    introSortRec(vetor, (size_t)tamVetor, &numComp, start, end);
 
     free(vetor);
 

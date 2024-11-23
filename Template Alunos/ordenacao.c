@@ -110,7 +110,7 @@ uint64_t mergeSort(int vetor[], size_t tam)
     }
 
     // Chama a função auxiliar para iniciar o merge sort
-    aux_mergeRec(vetor, vet_aux, a, tam - 1, &mergeCompRec);
+    aux_mergeRec(vetor, vet_aux, a, (int)tam - 1, &mergeCompRec);
 
     // Libera a memória alocada para o vetor auxiliar
     free(vet_aux);
@@ -164,7 +164,7 @@ void auxQuick(int vetor[], int a, int b, uint64_t *quickComp)
 uint64_t quickSort(int vetor[], size_t tam)
 {
     int a = 0;
-    int b = tam - 1;
+    int b = (int)tam - 1;
     uint64_t quickComp = 0;
 
     // Chama a função auxiliar para iniciar o quicksort
@@ -224,10 +224,10 @@ uint64_t heapSort(int vetor[], size_t tam)
     }
 
     // Constrói o max heap
-    construirMaxHeapRec(vetor, tam, &heapCompRec);
+    construirMaxHeapRec(vetor, (int)tam, &heapCompRec);
 
     // Ordena o vetor extraindo o maior elemento e ajustando o heap
-    for (int i = tam - 1; i > 0; i--)
+    for (int i = (int)tam - 1; i > 0; i--)
     {
         trocar(vetor, 0, i);                      // Troca o maior elemento com o último não ordenado
         maxHeapifyRec(vetor, 0, i, &heapCompRec);
@@ -313,7 +313,7 @@ uint64_t mergeSortSR(int vetor[], size_t tam)
 
     // Inicializa a pilha com os índices iniciais do vetor
     pilhaEsq[++topo] = 0;
-    pilhaDir[topo] = tam - 1;
+    pilhaDir[topo] = (int)tam - 1;
     pilhaMeio[topo] = -1;
 
     // Enquanto houver elementos na pilha
@@ -485,9 +485,9 @@ uint64_t heapSortSR(int vetor[], size_t tam)
         return (compHeapSR);
     }
 
-    construirMaxHeap(vetor, tam, &compHeapSR);
+    construirMaxHeap(vetor, (int)tam, &compHeapSR);
 
-    for (int i = tam - 1; i > 0; i--)
+    for (int i = (int)tam - 1; i > 0; i--)
     {
         trocar(vetor, 0, i);                  // Move o maior elemento para o final do vetor
         maxHeapify(vetor, i, 0, &compHeapSR); // Ajusta o heap para o tamanho reduzido
@@ -534,7 +534,7 @@ void introsortRec(int vetor[], int inicio, int fim, int maxDepth, uint64_t *comp
     // Muda para HeapSort se a profundidade máxima for atingida
     if (maxDepth == 0)
     {
-        *comparacoes += heapSort(&vetor[inicio], tamanho);
+        *comparacoes += heapSort(&vetor[inicio], (size_t)tamanho);
         return;
     }
 
@@ -563,7 +563,7 @@ uint64_t algoritmoExtra(int vetor[], size_t tam)
     // Define a profundidade máxima como 2 * log2(tamanho)
     maxDepth *= 2;
 
-    introsortRec(vetor, 0, tam - 1, maxDepth, &comparacoes);
+    introsortRec(vetor, 0, (int)tam - 1, maxDepth, &comparacoes);
 
     return (comparacoes);
 }
