@@ -243,8 +243,8 @@ uint64_t merge(int vetor[], int esq, int meio, int dir)
     uint64_t compMergeSR = 0; 
     int n1 = meio - esq + 1;                       // Tamanho do subvetor esquerdo
     int n2 = dir - meio;                           // Tamanho do subvetor direito
-    int *vetEsq = (int *)malloc(n1 * sizeof(int)); // Aloca memória para o subvetor esquerdo
-    int *vetDir = (int *)malloc(n2 * sizeof(int)); // Aloca memória para o subvetor direito
+    int *vetEsq = (int *)malloc((size_t)n1 * sizeof(int)); // Aloca memória para o subvetor esquerdo
+    int *vetDir = (int *)malloc((size_t)n2 * sizeof(int)); // Aloca memória para o subvetor direito
 
     // Copia os elementos para os subvetores auxiliares
     for (int idx = 0; idx < n1; idx++) // Usando 'idx' para evitar conflito com 'i' de fora

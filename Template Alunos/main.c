@@ -146,7 +146,7 @@ void introSortRec(int *vetor, size_t tam, uint64_t *numComparacoes, clock_t star
     start = clock();           // inicia o temporizador
     *numComparacoes = 0;
     *numComparacoes = algoritmoExtra(vetor, tam); // recebe o total de comparacoes do algoritimo
-    end = clock();                            // termina o temporizador
+    end = clock();                                // termina o temporizador
 
     total = (double)(end - start) / CLOCKS_PER_SEC; // calcula os segundos
 
@@ -172,7 +172,7 @@ int main()
 
     if ( tamVetor < 0)
     {
-        printf("Falha Fatal. Impossivel trabalhar com vetores de tamanha negativo.\n");
+        printf("Falha Fatal. Impossivel trabalhar com vetores de tamanho negativo.\n");
         return(1);
     }
     
@@ -180,7 +180,7 @@ int main()
 
     printf("\n");
 
-    int *vetor = (int *)malloc(tamVetor * sizeof(int));
+    int *vetor = (int *)malloc((size_t)tamVetor * sizeof(int));
 
     if (vetor == NULL)
     {
